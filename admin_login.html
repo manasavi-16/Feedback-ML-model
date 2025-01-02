@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* Login container styling */
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h2 {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        /* Input field styling */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border: 1px solid #ff6b6b;
+            box-shadow: 0px 2px 5px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #ff7878;
+            box-shadow: 0px 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        /* Flash message styling */
+        p {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Decorative shapes */
+        .circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            filter: blur(50px);
+        }
+
+        .circle-1 {
+            width: 250px;
+            height: 250px;
+            top: -50px;
+            left: -80px;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -60px;
+            right: -60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative background shapes -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+
+    <!-- Login container -->
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form method="POST" action="/admin-login">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p>{{ messages[0] }}</p>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

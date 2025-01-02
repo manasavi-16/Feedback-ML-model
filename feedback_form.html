@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+<style>
+    /* Global styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: auto;
+    }
+
+    /* Decorative background shapes */
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+    }
+    .circle-1 {
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        top: 10%;
+        left: 10%;
+    }
+    .circle-2 {
+        width: 300px;
+        height: 300px;
+        background-color: #fff;
+        top: 60%;
+        right: 20%;
+    }
+    .circle-3 {
+        width: 250px;
+        height: 250px;
+        background-color: #fff;
+        bottom: 15%;
+        left: 50%;
+    }
+
+    /* Form container */
+    .container {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        max-width: 750px;
+        z-index: 10;
+    }
+
+    h2 {
+        color: #003f8a;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Form input styles */
+    label {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007acc;
+        text-decoration: underline;
+        margin-top: 20px;
+        display: block;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+        width: 100%;
+        padding: 14px;
+        margin-top: 6px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        transition: border-color 0.3s ease;
+        margin-bottom: 15px; /* Added space after each field */
+    }
+
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+        border-color: #007acc;
+        outline: none;
+        box-shadow: 0 0 6px rgba(0, 122, 204, 0.5);
+    }
+
+    textarea {
+        resize: vertical;
+        height: 120px;
+    }
+
+    /* Radio button group */
+    .radio-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px 20px;
+        margin: 10px 0 20px;
+    }
+
+    .radio-group div {
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-group input[type="radio"] {
+        margin-right: 8px;
+        transform: scale(1.2);
+        accent-color: #007acc; /* Stylish checkbox */
+    }
+
+    .radio-group label {
+        font-size: 15px;
+        color: #555;
+        font-weight: normal;
+    }
+
+    /* Submit button */
+    button[type="submit"] {
+        background-color: #007acc;
+        color: white;
+        border: none;
+        padding: 14px 20px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #005ea6;
+        box-shadow: 0 0 10px rgba(0, 122, 204, 0.6);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+        .container {
+            width: 90%;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+    }
+</style>
+
+
+
+</head>
+<body>
+    <!-- Decorative background shapes -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <!-- Form container -->
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form method="POST" action="/submit-feedback">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <!-- New Design Review -->
+            <label for="design_review">Design Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="design_outstanding" name="design_review" value="outstanding">
+                    <label for="design_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="design_best" name="design_review" value="best">
+                    <label for="design_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="design_good" name="design_review" value="good">
+                    <label for="design_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="design_poor" name="design_review" value="poor">
+                    <label for="design_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="design_worst" name="design_review" value="worst">
+                    <label for="design_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="design_terrible" name="design_review" value="terrible">
+                    <label for="design_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- New Usability Review -->
+            <label for="usability_review">Usability Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="usability_outstanding" name="usability_review" value="outstanding">
+                    <label for="usability_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="usability_best" name="usability_review" value="best">
+                    <label for="usability_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="usability_good" name="usability_review" value="good">
+                    <label for="usability_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="usability_poor" name="usability_review" value="poor">
+                    <label for="usability_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="usability_worst" name="usability_review" value="worst">
+                    <label for="usability_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="usability_terrible" name="usability_review" value="terrible">
+                    <label for="usability_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- New Price Review -->
+            <label for="price_review">Price Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="price_outstanding" name="price_review" value="outstanding">
+                    <label for="price_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="price_best" name="price_review" value="best">
+                    <label for="price_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="price_good" name="price_review" value="good">
+                    <label for="price_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="price_poor" name="price_review" value="poor">
+                    <label for="price_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="price_worst" name="price_review" value="worst">
+                    <label for="price_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="price_terrible" name="price_review" value="terrible">
+                    <label for="price_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- New Sound Quality Review -->
+            <label for="sound_quality_review">Sound Quality Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="sound_quality_outstanding" name="sound_quality_review" value="outstanding">
+                    <label for="sound_quality_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="sound_quality_best" name="sound_quality_review" value="best">
+                    <label for="sound_quality_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="sound_quality_good" name="sound_quality_review" value="good">
+                    <label for="sound_quality_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="sound_quality_poor" name="sound_quality_review" value="poor">
+                    <label for="sound_quality_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="sound_quality_worst" name="sound_quality_review" value="worst">
+                    <label for="sound_quality_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="sound_quality_terrible" name="sound_quality_review" value="terrible">
+                    <label for="sound_quality_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- New Camera Quality Review -->
+            <label for="camera_quality_review">Camera Quality Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="camera_quality_outstanding" name="camera_quality_review" value="outstanding">
+                    <label for="camera_quality_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="camera_quality_best" name="camera_quality_review" value="best">
+                    <label for="camera_quality_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="camera_quality_good" name="camera_quality_review" value="good">
+                    <label for="camera_quality_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="camera_quality_poor" name="camera_quality_review" value="poor">
+                    <label for="camera_quality_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="camera_quality_worst" name="camera_quality_review" value="worst">
+                    <label for="camera_quality_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="camera_quality_terrible" name="camera_quality_review" value="terrible">
+                    <label for="camera_quality_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- New Battery Life Review -->
+            <label for="battery_life_review">Battery Life Review:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="battery_life_outstanding" name="battery_life_review" value="outstanding">
+                    <label for="battery_life_outstanding">Outstanding</label>
+                </div>
+                <div>
+                    <input type="radio" id="battery_life_best" name="battery_life_review" value="best">
+                    <label for="battery_life_best">Best</label>
+                </div>
+                <div>
+                    <input type="radio" id="battery_life_good" name="battery_life_review" value="good">
+                    <label for="battery_life_good">Good</label>
+                </div>
+                <div>
+                    <input type="radio" id="battery_life_poor" name="battery_life_review" value="poor">
+                    <label for="battery_life_poor">Poor</label>
+                </div>
+                <div>
+                    <input type="radio" id="battery_life_worst" name="battery_life_review" value="worst">
+                    <label for="battery_life_worst">Worst</label>
+                </div>
+                <div>
+                    <input type="radio" id="battery_life_terrible" name="battery_life_review" value="terrible">
+                    <label for="battery_life_terrible">Terrible</label>
+                </div>
+            </div>
+
+            <!-- Renamed Suggestions Field -->
+           
+	    <label for="suggestions">Suggestions:</label>
+	    <textarea id="suggestions" name="suggestions" placeholder="Your suggestions..." required></textarea>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

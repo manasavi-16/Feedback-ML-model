@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Submitted</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Center container styling */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Heading styling */
+        h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Link button styling */
+        a {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover effects for link button */
+        a:hover {
+            background: linear-gradient(135deg, #5b86e5, #36d1dc);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Add click animation */
+        a:active {
+            transform: translateY(2px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Decorative circles for aesthetic design */
+        .circle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            filter: blur(50px);
+        }
+
+        /* Different circle sizes and positions */
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .circle-3 {
+            width: 150px;
+            height: 150px;
+            top: 50px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <!-- Main container -->
+    <div class="container">
+        <h2>Thank You!</h2>
+        <p>Your feedback has been submitted successfully. We appreciate your effort in helping us improve!</p>
+        <a href="/">Go back to Home</a>
+    </div>
+</body>
+</html>
